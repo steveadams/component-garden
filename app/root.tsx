@@ -35,11 +35,13 @@ export default function App() {
       <head>
         <Meta />
         <Links />
-        <script
-          defer
-          data-domain="component.garden"
-          src="https://plausible.io/js/plausible.js"
-        ></script>
+        {process.env.NODE_ENV === "production" ? (
+          <script
+            defer
+            data-domain="component.garden"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
+        ) : null}
       </head>
       <body className="h-full">
         <Outlet />
